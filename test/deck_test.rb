@@ -38,7 +38,7 @@ class DeckTest < Minitest::Test
     deck = Deck.new(card_pile)
     deck.add_card(card24)
     deck.add_card(card8)
-    assert_equal [card2, card14, card32, card47, card24, card8], deck.cards
+    assert_equal [card8, card24, card2, card14, card32, card47], deck.cards
   end
 
   def test_it_can_return_high_rank_cards
@@ -51,6 +51,32 @@ class DeckTest < Minitest::Test
     card_pile = [card2, card14, card32, card47, card24, card8]
     deck = Deck.new(card_pile)
     assert_equal [card14, card24], deck.high_ranks
+  end
+
+  def test_it_can_return_percentage_of_high_ranks
+    card2 = Card.new(:spade, '2', 2)
+    card14 = Card.new(:heart, 'Ace', 14)
+    card32 = Card.new(:diamond, '6', 6)
+    card47 = Card.new(:club, '8', 8)
+    card24 = Card.new(:heart, 'Jack', 11)
+    card8 = Card.new(:spade, '8', 8)
+    card_pile = [card2, card14, card32, card47, card24, card8]
+    deck = Deck.new(card_pile)
+    assert_equal 33.33, deck.percent_high_ranks
+  end
+
+  def test_it_can_remove_cards
+    card2 = Card.new(:spade, '2', 2)
+    card14 = Card.new(:heart, 'Ace', 14)
+    card32 = Card.new(:diamond, '6', 6)
+    card47 = Card.new(:club, '8', 8)
+    card24 = Card.new(:heart, 'Jack', 11)
+    card8 = Card.new(:spade, '8', 8)
+    card_pile = [card2, card14, card32, card47, card24, card8]
+    deck = Deck.new(card_pile)
+    deck.remove_card
+    assert_equal [card2, card14, card32, card47, card24], deck.cards
+    assert_equal 40.0, deck.percent_high_ranks
   end
 
 end
