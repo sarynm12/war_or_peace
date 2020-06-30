@@ -36,12 +36,12 @@ class Turn
       @spoils_of_war << player1.deck.remove_card
       @spoils_of_war << player2.deck.remove_card
     elsif type == :war
-      @spoils_of_war << player1.deck.cards[0]
-      @spoils_of_war << player1.deck.cards[1]
-      @spoils_of_war << player1.deck.cards[2]
-      @spoils_of_war << player2.deck.cards[0]
-      @spoils_of_war << player2.deck.cards[1]
-      @spoils_of_war << player2.deck.cards[2]
+      @spoils_of_war << player1.deck.remove_card
+      @spoils_of_war << player1.deck.remove_card
+      @spoils_of_war << player1.deck.remove_card
+      @spoils_of_war << player2.deck.remove_card
+      @spoils_of_war << player2.deck.remove_card
+      @spoils_of_war << player2.deck.remove_card
     elsif type == :mutually_assured_destruction
       3.times do
         player1.deck.remove_card

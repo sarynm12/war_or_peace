@@ -204,6 +204,7 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Megan", deck1)
     player1 = Player.new("Aurora", deck2)
     turn = Turn.new(player1, player2)
+    require "pry"; binding.pry
     turn.pile_cards
     assert_equal 6, turn.spoils_of_war.count
   end
