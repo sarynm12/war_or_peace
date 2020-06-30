@@ -36,8 +36,12 @@ class Turn
       @spoils_of_war << player1.deck.remove_card
       @spoils_of_war << player2.deck.remove_card
     elsif type == :war
-      @spoils_of_war << player1.deck.cards[0..2]
-      @spoils_of_war << player2.deck.cards[0..2]
+      @spoils_of_war << player1.deck.cards[0]
+      @spoils_of_war << player1.deck.cards[1]
+      @spoils_of_war << player1.deck.cards[2]
+      @spoils_of_war << player2.deck.cards[0]
+      @spoils_of_war << player2.deck.cards[1]
+      @spoils_of_war << player2.deck.cards[2]
     elsif type == :mutually_assured_destruction
       3.times do
         player1.deck.remove_card
@@ -47,5 +51,18 @@ class Turn
       end
     end
   end
+
+  def award_spoils
+    if winner = player1
+      @spoils_of_war.each do |spoils_of_war|
+        player1.deck.cards << spoils_of_war
+      end
+    elsif winner = player2
+      @spoils_of_war.each do |spoils_of_war|
+        player2.deck.cards << spoils_of_war
+      end
+    end
+  end
+  # award_spoils: this method will add each of the cards in the @spoils_of_war array to the winner of the turn.
 
 end
