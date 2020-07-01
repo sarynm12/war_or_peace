@@ -54,8 +54,14 @@ class Turn
 
   def award_spoils(winner)
     (winner.deck.cards << spoils_of_war).flatten! if winner.is_a?(Player)
-    # winner.deck.add_card(@spoils_of_war) if winner.is_a?(Player)
     @spoils_of_war = []
   end
+
+  # def award_spoils(winner)
+  #   @spoils_of_war.each do |card|
+  #     winner.deck.cards << card
+  #   end
+  #   @spoils_of_war = []
+  # end
 
 end
