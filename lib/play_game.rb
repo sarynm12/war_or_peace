@@ -59,10 +59,14 @@ class PlayGame
     @cards << Card.new(:club, 'Jack', 11)
     @cards << Card.new(:club, 'Queen', 12)
     @cards << Card.new(:club, 'King', 13)
-
     @cards.shuffle
-    deck1 = Deck.new(@cards.pop(26))
-    deck2 = Deck.new(@cards)
+
+    @deck1 = Deck.new(@cards.pop(26))
+    @deck2 = Deck.new(@cards)
+
+    @player1 = Player.new("Megan", @deck1)
+    @player2 = Player.new("Aurora", @deck2)
+
     game = PlayGame.new
     game.start
     p @cards.deck1
