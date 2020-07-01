@@ -190,7 +190,7 @@ class TurnTest < Minitest::Test
     assert_equal [card2, card5, card8, card1, card3], player1.deck.cards
     assert_equal [card4, card6, card7], player2.deck.cards
     assert_equal [], turn.spoils_of_war
-    assert_equal 0, turn.spoils_of_war.count 
+    assert_equal 0, turn.spoils_of_war.count
   end
 
   def test_pile_cards_with_different_turn_type
@@ -212,7 +212,5 @@ class TurnTest < Minitest::Test
     assert_equal 1, player1.deck.cards.count
     assert_equal 1, player2.deck.cards.count
   end
-
-
 
 end
