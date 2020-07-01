@@ -52,17 +52,10 @@ class Turn
     end
   end
 
-  def award_spoils
-    if winner = player1
-      @spoils_of_war.each do |spoils_of_war|
-        player1.deck.cards << spoils_of_war
-      end
-    elsif winner = player2
-      @spoils_of_war.each do |spoils_of_war|
-        player2.deck.cards << spoils_of_war
-      end
-    end
+  def award_spoils(winner)
+    (winner.deck.cards << spoils_of_war).flatten! if winner.is_a?(Player)
+    # winner.deck.add_card(@spoils_of_war) if winner.is_a?(Player)
+    @spoils_of_war = []
   end
-  # award_spoils: this method will add each of the cards in the @spoils_of_war array to the winner of the turn.
 
 end
