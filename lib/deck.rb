@@ -10,7 +10,7 @@ class Deck
   end
 
   def add_card(card)
-    @cards.insert(0, card)
+    @cards.insert(-1, card)
   end
 
   def high_ranks
@@ -25,7 +25,7 @@ class Deck
   end
 
   def remove_card
-    @cards.pop
+    @cards.shift
   end
 
 end

@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/deck'
 require './lib/card'
 require './lib/card_generator'
-require 'pry'
+
 
 class DeckTest < Minitest::Test
 
@@ -38,7 +38,7 @@ class DeckTest < Minitest::Test
     deck = Deck.new(card_pile)
     deck.add_card(card24)
     deck.add_card(card8)
-    assert_equal [card8, card24, card2, card14, card32, card47], deck.cards
+    assert_equal [card2, card14, card32, card47, card24, card8], deck.cards
   end
 
   def test_it_can_return_high_rank_cards
@@ -75,7 +75,7 @@ class DeckTest < Minitest::Test
     card_pile = [card2, card14, card32, card47, card24, card8]
     deck = Deck.new(card_pile)
     deck.remove_card
-    assert_equal [card2, card14, card32, card47, card24], deck.cards
+    assert_equal [card14, card32, card47, card24, card8], deck.cards
     assert_equal 40.0, deck.percent_high_ranks
   end
 
