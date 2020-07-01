@@ -63,5 +63,5 @@ class Turn
   #   end
   #   @spoils_of_war = []
   # end
-
+  
 end

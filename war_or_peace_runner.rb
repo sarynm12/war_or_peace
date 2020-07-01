@@ -1,0 +1,2 @@
+
+PlayGame.new.start
