@@ -59,15 +59,59 @@ class PlayGame
     cards << Card.new(:club, 'Jack', 11)
     cards << Card.new(:club, 'Queen', 12)
     cards << Card.new(:club, 'King', 13)
-    cards.shuffle
+    shuffled = cards.shuffle
 
-    deck1 = Deck.new(cards.pop(26))
-    deck2 = Deck.new(cards)
+    deck1 = Deck.new(shuffled.pop(26))
+    deck2 = Deck.new(shuffled)
 
     player1 = Player.new("Megan", deck1)
     player2 = Player.new("Aurora", deck2)
 
+    #turn = Turn.new(player1, player2)
+
+p "Welcome to War! (or Peace) This game will be played with 52 cards."
+p "The players today are Megan and Aurora."
+p "Type 'GO' to start the game!"
+p "------------------------------------------------------------------"
+
+input = gets.chomp.upcase
+if input == 'GO'
+  turn_count = 0
+  loop do
     turn = Turn.new(player1, player2)
+    turn_count += 1
+      if player1.has_lost? == true || player2.has_lost? == true || turn_count == 1_000_000
+        break
+
+      else
+        winner = turn.winner
+        turn.pile_cards
+        turn.award_spoils(winner)
+
+      if turn.type == :basic
+        turn.pile_cards 
+
+#       #Turn 1: Megan won 2 cards
+# Turn 2: WAR - Aurora won 6 cards
+# Turn 3: *mutually assured destruction* 6 cards removed from play
+# ...
+# ...
+# ...
+# Turn 9324: Aurora won 2 cards
+# *~*~*~* Aurora has won the game! *~*~*~*
+
+    end
+  end
+
+
+
+
+
+
+
+
+end
+
 
   end
 
