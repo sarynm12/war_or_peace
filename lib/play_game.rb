@@ -96,7 +96,13 @@ class PlayGame
       p "Turn#{turn_count}: *mutually assured destruction* 6 cards removed from play."
     end
     turn_count += 1
+
+    if player1.has_lost? == true || player2.has_lost? == true
+      puts "*~*~*~* #{winner.name} has won the game! *~*~*~*"
+    elsif turn_count == 1_000_000
+      puts "*~*~*~* Game over: it's a DRAW *~*~*~*"
+    end
   end
 end
 end
-end
+end 
