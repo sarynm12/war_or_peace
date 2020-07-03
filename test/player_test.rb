@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/player'
 require './lib/deck'
 require './lib/card'
-require './lib/card_generator'
 
 class PlayerTest < Minitest::Test
 
