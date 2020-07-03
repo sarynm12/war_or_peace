@@ -5,8 +5,6 @@ require './lib/turn'
 
 class PlayGame
 
-  #attr_reader :cards
-
   def start
     suits = [:spade, :heart, :diamond, :club]
     values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
