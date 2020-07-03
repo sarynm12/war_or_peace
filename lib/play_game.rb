@@ -5,61 +5,20 @@ require './lib/turn'
 
 class PlayGame
 
+  #attr_reader :cards
+
   def start
+    suits = [:spade, :heart, :diamond, :club]
+    values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
     cards = []
-    cards << Card.new(:spade, 'Ace', 14)
-    cards << Card.new(:spade, '2', 2)
-    cards << Card.new(:spade, '3', 3)
-    cards << Card.new(:spade, '4', 4)
-    cards << Card.new(:spade, '5', 5)
-    cards << Card.new(:spade, '6', 6)
-    cards << Card.new(:spade, '7', 7)
-    cards << Card.new(:spade, '8', 8)
-    cards << Card.new(:spade, '9', 9)
-    cards << Card.new(:spade, '10', 10)
-    cards << Card.new(:spade, 'Jack', 11)
-    cards << Card.new(:spade, 'Queen', 12)
-    cards << Card.new(:spade, 'King', 13)
-    cards << Card.new(:heart, 'Ace', 14)
-    cards << Card.new(:heart, '2', 2)
-    cards << Card.new(:heart, '3', 3)
-    cards << Card.new(:heart, '4', 4)
-    cards << Card.new(:heart, '5', 5)
-    cards << Card.new(:heart, '6', 6)
-    cards << Card.new(:heart, '7', 7)
-    cards << Card.new(:heart, '8', 8)
-    cards << Card.new(:heart, '9', 9)
-    cards << Card.new(:heart, '10', 10)
-    cards << Card.new(:heart, 'Jack', 11)
-    cards << Card.new(:heart, 'Queen', 12)
-    cards << Card.new(:heart, 'King', 13)
-    cards << Card.new(:diamond, 'Ace', 14)
-    cards << Card.new(:diamond, '2', 2)
-    cards << Card.new(:diamond, '3', 3)
-    cards << Card.new(:diamond, '4', 4)
-    cards << Card.new(:diamond, '5', 5)
-    cards << Card.new(:diamond, '6', 6)
-    cards << Card.new(:diamond, '7', 7)
-    cards << Card.new(:diamond, '8', 8)
-    cards << Card.new(:diamond, '9', 9)
-    cards << Card.new(:diamond, '10', 10)
-    cards << Card.new(:diamond, 'Jack', 11)
-    cards << Card.new(:diamond, 'Queen', 12)
-    cards << Card.new(:diamond, 'King', 13)
-    cards << Card.new(:club, 'Ace', 14)
-    cards << Card.new(:club, '2', 2)
-    cards << Card.new(:club, '3', 3)
-    cards << Card.new(:club, '4', 4)
-    cards << Card.new(:club, '5', 5)
-    cards << Card.new(:club, '6', 6)
-    cards << Card.new(:club, '7', 7)
-    cards << Card.new(:club, '8', 8)
-    cards << Card.new(:club, '9', 9)
-    cards << Card.new(:club, '10', 10)
-    cards << Card.new(:club, 'Jack', 11)
-    cards << Card.new(:club, 'Queen', 12)
-    cards << Card.new(:club, 'King', 13)
-    shuffled = cards.shuffle
+    ranks = (2..14).to_a
+    suits.each do |suit|
+      complete_cards = ranks.zip(values)
+      complete_cards.each do |rank, value|
+        cards << Card.new(suit, value, rank)
+      end
+    end
+    shuffled = cards.shuffle!
 
     deck1 = Deck.new(shuffled.pop(26))
     deck2 = Deck.new(shuffled)
