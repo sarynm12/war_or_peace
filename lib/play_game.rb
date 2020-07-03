@@ -100,17 +100,3 @@ class PlayGame
 end
 end
 end
-
-#correct message shows in the next turn
-
-
-
-  #     else
-  #       winner = turn.winner
-  #       turn.pile_cards
-  #       turn.award_spoils(winner)
-  #
-  #     if turn.type == :basic
-  #       turn.pile_cards
-  #
-  # end
