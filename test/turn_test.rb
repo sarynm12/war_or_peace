@@ -108,6 +108,7 @@ class TurnTest < Minitest::Test
     player2 = Player.new("Aurora", deck2)
     turn = Turn.new(player1, player2)
     assert_equal player1, turn.winner
+    assert_equal "Megan", turn.winner.name 
   end
 
   def test_it_can_return_another_winner_when_decks_are_switched
