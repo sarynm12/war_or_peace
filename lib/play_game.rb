@@ -30,6 +30,10 @@ class PlayGame
     p "------------------------------------------------------------------"
 
     input = gets.chomp.upcase
+    while input != 'GO'
+      p "Please try again. Type 'GO' to start."
+      input = gets.chomp.upcase
+    end 
     if input == 'GO'
     turn_count = 1
 
