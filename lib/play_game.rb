@@ -30,6 +30,10 @@ class PlayGame
     p "------------------------------------------------------------------"
 
     input = gets.chomp.upcase
+    while input != 'GO'
+      p "Please try again. Type 'GO' to start."
+      input = gets.chomp.upcase
+    end 
     if input == 'GO'
     turn_count = 1
 
@@ -38,17 +42,18 @@ class PlayGame
       puts "Turn Type: #{turn.type}"
 
       winner = turn.winner
-      if turn.type == :basic
+      case turn.type
+      when :basic
         turn.pile_cards
         turn.award_spoils(winner)
         p "Turn #{turn_count}: #{winner.name} won 2 cards"
 
-      elsif turn.type == :war
+      when :war
         turn.pile_cards
         turn.award_spoils(winner)
         p "Turn#{turn_count}: #{winner.name} won 6 cards."
 
-      elsif turn.type == :mutually_assured_destruction
+      when :mutually_assured_destruction
         turn.pile_cards
         p "Turn#{turn_count}: *mutually assured destruction* 6 cards removed from play."
       end
