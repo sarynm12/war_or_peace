@@ -21,8 +21,4 @@ class CardTest < Minitest::Test
     assert_equal 12, card.rank
   end
 
-  def test_all_cards_can_be_created
-
-  end
-
 end
